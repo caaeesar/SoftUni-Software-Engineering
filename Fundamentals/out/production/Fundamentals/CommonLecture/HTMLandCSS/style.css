@@ -1,0 +1,15 @@
+p.blueParagraph {
+    color: blue;
+    font-family: "Apple Chancery";
+}
+
+h1#redHead {
+    color: red;
+    text-align: center;
+    border: 2px solid rgb(156, 156, 217);
+    font-family: "Apple Chancery";
+}
+
+p.blackParagraph {
+    font-family: "Apple Chancery";
+}
