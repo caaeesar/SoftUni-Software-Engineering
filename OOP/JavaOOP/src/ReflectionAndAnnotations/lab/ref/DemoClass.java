@@ -2,7 +2,7 @@ package ReflectionAndAnnotations.lab.ref;
 
 import java.io.Serializable;
 
-public class Reflection implements Serializable {
+public class DemoClass implements Serializable {
 
     private static final String nickName = "Pinguin";
     public String name;
@@ -10,21 +10,21 @@ public class Reflection implements Serializable {
     String email;
     private int zip;
 
-    public Reflection() {
+    public DemoClass() {
         this.setName("Java");
         this.setWebAddress("oracle.com");
         this.setEmail("mail@oracle.com");
         this.setZip(1407);
     }
 
-    private Reflection(String name, String webAddress, String email) {
+    private DemoClass(String name, String webAddress, String email) {
         this.setName(name);
         this.setWebAddress(webAddress);
         this.setEmail(email);
         this.setZip(2300);
     }
 
-    protected Reflection(String name, String webAddress, String email, int zip) {
+    protected DemoClass(String name, String webAddress, String email, int zip) {
         this.setName(name);
         this.setWebAddress(webAddress);
         this.setEmail(email);

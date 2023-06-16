@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] arguments) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 
         // entry point
-        Class<Reflection> reflectionClass = Reflection.class;
+        Class<DemoClass> reflectionClass = DemoClass.class;
 
         // Class.forName("ReflectionAndAnnotations.lab.ref.Reflection");
 
@@ -27,7 +27,7 @@ public class Main {
             System.out.println(anInterface);
         }
 
-        Reflection reflectionObject = reflectionClass.getDeclaredConstructor().newInstance();
+        DemoClass reflectionObject = reflectionClass.getDeclaredConstructor().newInstance();
 
         // init param                                        // init args
         // reflectionClass.getDeclaredConstructor(String.class, String.class, String.class).newInstance("Melisa", "Melissa", "Mellisa");
