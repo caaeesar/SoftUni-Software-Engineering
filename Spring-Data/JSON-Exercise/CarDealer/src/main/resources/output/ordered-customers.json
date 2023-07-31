@@ -1,0 +1,233 @@
+[
+  {
+    "Id": 18,
+    "Name": "Taina Achenbach",
+    "BirthDate": "1995-10-07",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 19,
+    "Name": "Yvonne Mccalla",
+    "BirthDate": "1995-10-07",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 16,
+    "Name": "Carri Knapik",
+    "BirthDate": "1997-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 17,
+    "Name": "Rema Revelle",
+    "BirthDate": "1999-12-03",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "carMake": "Toyota",
+        "carModel": "Prius",
+        "customerName": "Rema Revelle",
+        "discount": 30.0
+      }
+    ]
+  },
+  {
+    "Id": 25,
+    "Name": "Sylvie Mcelravy",
+    "BirthDate": "2011-10-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 5,
+    "Name": "Hai Everton",
+    "BirthDate": "2011-10-06",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 8,
+    "Name": "Teddy Hobby",
+    "BirthDate": "2011-11-05",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 20,
+    "Name": "Nisha Markwell",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 27,
+    "Name": "Garret Capron",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 29,
+    "Name": "Louann Holzworth",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 1,
+    "Name": "Emmitt Benally",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 9,
+    "Name": "Johnette Derryberry",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 21,
+    "Name": "Cinthia Lasala",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 26,
+    "Name": "Hipolito Lamoreaux",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 28,
+    "Name": "Donnetta Soliz",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "carMake": "Peugeot",
+        "carModel": "206",
+        "customerName": "Donnetta Soliz",
+        "discount": 40.0
+      }
+    ]
+  },
+  {
+    "Id": 30,
+    "Name": "Ann Mcenaney",
+    "BirthDate": "2011-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 24,
+    "Name": "Jimmy Grossi",
+    "BirthDate": "2011-12-05",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 4,
+    "Name": "Zada Attwood",
+    "BirthDate": "2011-12-06",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 6,
+    "Name": "Lino Subia",
+    "BirthDate": "2011-12-07",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 7,
+    "Name": "Rico Peer",
+    "BirthDate": "2011-12-07",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 12,
+    "Name": "Carole Witman",
+    "BirthDate": "2012-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 2,
+    "Name": "Natalie Poli",
+    "BirthDate": "2013-10-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 3,
+    "Name": "Marcelle Griego",
+    "BirthDate": "2014-12-05",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 22,
+    "Name": "Daniele Zarate",
+    "BirthDate": "2015-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 11,
+    "Name": "Francis Mckim",
+    "BirthDate": "2015-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 10,
+    "Name": "Audrea Cardinal",
+    "BirthDate": "2017-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 13,
+    "Name": "Oren Perlman",
+    "BirthDate": "2018-12-03",
+    "IsYoungDriver": true,
+    "Sales": []
+  },
+  {
+    "Id": 23,
+    "Name": "Faustina Burgher",
+    "BirthDate": "2019-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 14,
+    "Name": "Brett Brickley",
+    "BirthDate": "2019-12-03",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "carMake": "Opel",
+        "carModel": "Omega",
+        "customerName": "Brett Brickley",
+        "discount": 50.0
+      }
+    ]
+  },
+  {
+    "Id": 15,
+    "Name": "Kristian Engberg",
+    "BirthDate": "2020-12-03",
+    "IsYoungDriver": false,
+    "Sales": []
+  }
+]

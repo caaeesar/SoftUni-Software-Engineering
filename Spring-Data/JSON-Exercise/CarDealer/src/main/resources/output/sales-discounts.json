@@ -1,0 +1,29 @@
+[
+  {
+    "Make": "Ford",
+    "Model": "Torino",
+    "TravelledDistance": 2147,
+    "customerName": "Johnette Derryberry",
+    "Discount": 50.0,
+    "price": 612.21,
+    "priceWithDiscount": 102.62
+  },
+  {
+    "Make": "Ford",
+    "Model": "Pinto",
+    "TravelledDistance": 922337203,
+    "customerName": "Hipolito Lamoreaux",
+    "Discount": 15.0,
+    "price": 507.22,
+    "priceWithDiscount": 85.56
+  },
+  {
+    "Make": "Opel",
+    "Model": "Omega",
+    "TravelledDistance": 1,
+    "customerName": "Jimmy Grossi",
+    "Discount": 0.0,
+    "price": 83.97,
+    "priceWithDiscount": 4.99
+  }
+]

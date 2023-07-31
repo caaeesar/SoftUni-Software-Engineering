@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customers>
+    <customer full-name="Ann Mcenaney" bought-cars="1" spent-money="1432.31"/>
+    <customer full-name="Brett Brickley" bought-cars="1" spent-money="655.04"/>
+    <customer full-name="Oren Perlman" bought-cars="1" spent-money="271.70"/>
+</customers>

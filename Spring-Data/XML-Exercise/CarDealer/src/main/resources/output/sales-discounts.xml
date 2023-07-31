@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sales>
+    <sale>
+        <car make="Fiat" model="Panda 4x4 Antarctica" travelled-distance="2183647"/>
+        <customer-name>Brett Brickley</customer-name>
+        <discount>5.0</discount>
+        <price>655.04</price>
+        <price-with-discount>133.94</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Seat" model="Mii" travelled-distance="214747"/>
+        <customer-name>Ann Mcenaney</customer-name>
+        <discount>30.0</discount>
+        <price>1432.31</price>
+        <price-with-discount>980.24</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Opel" model="Corsa" travelled-distance="2147483647"/>
+        <customer-name>Oren Perlman</customer-name>
+        <discount>20.0</discount>
+        <price>271.7</price>
+        <price-with-discount>6.39</price-with-discount>
+    </sale>
+</sales>
