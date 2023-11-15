@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:fragment="header" >
+  <nav class="navbar navbar-expand-lg bg-nav rounded">
+    <a class="nav-link text-white active h5" href="/">Shopping List App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+      <ul class="navbar-nav row">
+        <th:block th:unless="${@loggedUser.isLogged()}">
+        <li class="nav-item col-md-4">
+          <a class="nav-link text-white active h5" href="/users/login">Login</a>
+        </li>
+        <li class="nav-item col-md-4">
+          <a class="nav-link text-white active h5" href="/users/register">Register</a>
+        </li>
+        </th:block>
+
+        <th:block th:if="${@loggedUser.isLogged()}">
+        <li class="nav-item col-md-4">
+          <form th:method="POST" th:action="@{/users/logout}">
+            <button type="submit" class="btn bg-light">Logout</button>
+          </form>
+         <!-- <a class="nav-link text-white active h5" href="/users/logout">Logout</a>-->
+        </li>
+        <li class="nav-item col-md-4">
+          <a class="nav-link text-white active h5" href="/products/add">Add Product</a>
+        </li>
+        </th:block>
+      </ul>
+    </div>
+  </nav>
+</header>
+</body>
+</html>
