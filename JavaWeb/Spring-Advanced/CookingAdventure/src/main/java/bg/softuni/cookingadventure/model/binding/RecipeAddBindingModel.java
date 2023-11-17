@@ -23,6 +23,7 @@ public class RecipeAddBindingModel {
     @Length(min = 3, message = "Description length must be at least 3 characters!")
     private String description;
 
+    @NotBlank(message = "You must add at least one ingredient!")
     private String ingredientNames;
 
     @NotNull

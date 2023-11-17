@@ -16,7 +16,6 @@ import lombok.Setter;
 public class IngredientEntity extends BaseEntity {
 
     @Column(nullable = false)
-    @Size(min = 3)
     private String name;
 
     public IngredientEntity(String name) {
