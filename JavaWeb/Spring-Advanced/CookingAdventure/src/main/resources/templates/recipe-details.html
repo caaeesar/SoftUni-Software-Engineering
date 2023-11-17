@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+
+<div class="recipe-details">
+
+    <img th:src="${recipe.imageUrl}" th:alt="${recipe.title}"/>
+
+    <div class="text-details">
+        <h1 th:text="${recipe.title}"></h1>
+        <p th:text="${recipe.description}"></p>
+
+        <div class="detail-item">
+            <h1>Category: <span style="color: grey" th:text="${recipe.categoryName}"></span></h1>
+        </div>
+
+        <div class="detail-item">
+            <h1>Preparation Time: <span style="color: grey" th:text="${recipe.preparationTime}"></span></h1>
+        </div>
+
+        <div class="detail-item">
+            <h1>Ingredients:</h1>
+            <ul>
+                <li th:each="ingredient : ${recipe.ingredients}" th:text="${ingredient.name}"></li>
+            </ul>
+        </div>
+
+        <div class="detail-item">
+            <h1>Created by: <span style="color: grey" th:text="${recipe.author.username}"> </span></h1>
+        </div>
+    </div>
+
+    <a th:href="@{/recipes/all}">
+        <button type="button" class="back-button">Back to Recipes</button>
+    </a>
+</div>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

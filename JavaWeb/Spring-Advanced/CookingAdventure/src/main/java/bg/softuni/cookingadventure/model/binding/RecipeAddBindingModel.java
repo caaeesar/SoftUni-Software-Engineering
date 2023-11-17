@@ -1,0 +1,32 @@
+package bg.softuni.cookingadventure.model.binding;
+
+import bg.softuni.cookingadventure.model.entity.enums.CategoryName;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
+
+import java.time.LocalTime;
+
+@Getter
+@Setter
+public class RecipeAddBindingModel {
+
+    @NotBlank
+    @Length(min = 3, message = "Title length must be between 3 and 20 characters!")
+    private String title;
+
+    private String imageUrl;
+
+    @NotBlank
+    @Length(min = 3, message = "Description length must be at least 3 characters!")
+    private String description;
+
+    private String ingredientNames;
+
+    @NotNull
+    private CategoryName category;
+
+    private LocalTime preparationTime;
+}

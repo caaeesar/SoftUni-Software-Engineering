@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+
+<div class="all-container col-md-4 mt-1 mb-1 ">
+    <h2 class="all-h2">All users</h2>
+    <table>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.age}"></td>
+            <td>
+                <ul>
+                    <li th:each="role : ${user.roles}" th:text="${role.name}"></li>
+                </ul>
+            </td>
+
+            <td>
+                <form th:action="@{/admin/delete-user/{id}(id=${user.id})}" th:method="DELETE">
+                    <input class="delete-button" type="submit" value="Delete"/>
+                </form>
+            </td>
+
+            <td>
+                <form th:action="@{/admin/manage-roles/{id}(id=${user.id})}" th:method="POST">
+                    <select multiple="multiple" name="roleIds">
+                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+                    </select>
+                    <input class="remove-button" type="submit" value="Manage Roles"/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

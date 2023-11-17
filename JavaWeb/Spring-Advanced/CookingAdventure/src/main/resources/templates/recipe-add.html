@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<div class="container">
+    <form class="full-screen-form" th:action="@{/recipes/add}" th:method="POST" th:object="${recipeAddBindingModel}">
+
+        <h1>Create Recipe</h1>
+
+        <div class="form-group col-md-6">
+            <label for="inputTitle">Title</label>
+            <input th:field="*{title}"
+                   required
+                   min="3"
+                   th:errorclass=" 'is-invalid bg-danger' "
+                   type="text" class="form-control" id="inputTitle" placeholder="Title">
+            <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+                   class="text-danger invalid-feedback">Email error message</small>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputImageUrl" id="imageUrl">Image Url</label>
+            <input th:field="*{imageUrl}"
+                   name="imageUrl"
+                   type="text"
+                   id="inputImageUrl"
+                   placeholder="Image Url">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="inputDescription">Description</label>
+            <textarea th:field="*{description}"
+                      class="form-control form-control-lg" id="inputDescription" rows="3"></textarea>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="preparationTime">Preparation Time:</label>
+            <input type="time" id="preparationTime" name="preparationTime" required>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="inputCategory">Category</label>
+            <select th:field="*{category}" id="inputCategory" required class="form-control">
+                <option value="">Select category</option>
+                <option th:each="c : ${categories}" th:text="${c}" th:value="${c}">...</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="inputIngredients" id="inputIngredients">Ingredients</label>
+            <input th:field="*{ingredientNames}"
+                   type="text" id="ingredientName" placeholder="Ingredient1, Ingredient2, Ingredient3"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>
