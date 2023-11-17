@@ -13,13 +13,13 @@ import java.time.LocalTime;
 @Setter
 public class RecipeAddBindingModel {
 
-    @NotBlank
-    @Length(min = 3, message = "Title length must be between 3 and 20 characters!")
+    @NotBlank(message = "")
+    @Length(min = 3,message = "Title length must be between 3 and 20 characters!")
     private String title;
 
     private String imageUrl;
 
-    @NotBlank
+    @NotBlank(message = "")
     @Length(min = 3, message = "Description length must be at least 3 characters!")
     private String description;
 
@@ -28,5 +28,6 @@ public class RecipeAddBindingModel {
     @NotNull
     private CategoryName category;
 
+    @NotNull(message = "Preparation time must not be empty!")
     private LocalTime preparationTime;
 }

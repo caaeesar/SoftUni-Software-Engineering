@@ -75,7 +75,8 @@ public class RecipesController {
                                 RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("recipeAddBindingModel", recipeAddBindingModel);
+            redirectAttributes.addFlashAttribute("recipeAddBindingModel", recipeAddBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.recipeAddBindingModel", bindingResult);
             return "redirect:add";
         }
 

@@ -5,15 +5,13 @@
 <header th:replace="~{fragments/commons::nav}"></header>
 <div class="container">
     <form class="full-screen-form" th:action="@{/recipes/add}" th:method="POST" th:object="${recipeAddBindingModel}">
-
         <h1>Create Recipe</h1>
-
         <div class="form-group col-md-6">
             <label for="inputTitle">Title</label>
             <input th:field="*{title}"
+                   th:errorclass=" 'is-invalid bg-danger' "
                    required
                    min="3"
-                   th:errorclass=" 'is-invalid bg-danger' "
                    type="text" class="form-control" id="inputTitle" placeholder="Title">
             <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
                    class="text-danger invalid-feedback">Email error message</small>
@@ -31,12 +29,23 @@
         <div class="form-group col-md-4">
             <label for="inputDescription">Description</label>
             <textarea th:field="*{description}"
+                      th:errorclass=" 'is-invalid bg-danger' "
+                      required
                       class="form-control form-control-lg" id="inputDescription" rows="3"></textarea>
+            <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                   class="text-danger invalid-feedback">Email error message</small>
+
         </div>
 
         <div class="form-group col-md-4">
             <label for="preparationTime">Preparation Time:</label>
-            <input type="time" id="preparationTime" name="preparationTime" required>
+            <input type="time"
+                   id="preparationTime"
+                   th:errorclass=" 'is-invalid bg-danger' ">
+            name="preparationTime"
+            required
+            <small th:if="${#fields.hasErrors('preparationTime')}" th:errors="*{preparationTime}"
+                   class="text-danger invalid-feedback">Email error message</small>
         </div>
 
         <div class="form-group col-md-4">
@@ -52,7 +61,6 @@
             <input th:field="*{ingredientNames}"
                    type="text" id="ingredientName" placeholder="Ingredient1, Ingredient2, Ingredient3"/>
         </div>
-
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
