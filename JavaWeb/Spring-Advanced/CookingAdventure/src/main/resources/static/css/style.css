@@ -346,9 +346,12 @@ html, body {
     background-color: #45a049;
 }
 
-/*  All users */
+/*  Admin  */
 .all-container {
     margin: 0 auto;
+    height: 500px;
+    overflow-y: auto;
+    width: 500px;
 }
 
 table {
