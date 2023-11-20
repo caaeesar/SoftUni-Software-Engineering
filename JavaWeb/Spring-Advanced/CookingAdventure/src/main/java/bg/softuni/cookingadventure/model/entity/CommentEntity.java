@@ -20,7 +20,6 @@ public class CommentEntity extends BaseEntity {
     private UserEntity author;
 
     @Column(name = "date_time_post")
-    @DateTimeFormat(pattern = "YY-MM-DD hh:mm:ss")
     private LocalDateTime dateTimePost;
 
     @Column(columnDefinition = "TEXT", length = 1)
