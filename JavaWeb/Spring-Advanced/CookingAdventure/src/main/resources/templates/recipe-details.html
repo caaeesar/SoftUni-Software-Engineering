@@ -9,6 +9,7 @@
     <img th:src="${recipe.imageUrl}" th:alt="${recipe.title}"/>
 
     <div class="text-details">
+        <input type="hidden" name="recipeId" id="recipeId" th:value="${recipe.id}">
         <h1 th:text="${recipe.title}"></h1>
         <p th:text="${recipe.description}"></p>
 
@@ -42,8 +43,8 @@
 
     <div sec:authorize="isAuthenticated()">
 
-        <form id="commentForm" method="POST"
-              action="/">
+        <form id="commentForm" th:method="POST"
+              th:action="@{/api/{recipeId}/comments(recipeId=${recipe.id})}">
             <div class="form-group">
                 <h4>Leave a comment</h4>
                 <label for="text">Message</label>
