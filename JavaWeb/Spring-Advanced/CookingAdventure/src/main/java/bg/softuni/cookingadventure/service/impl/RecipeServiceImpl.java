@@ -93,7 +93,7 @@ public class RecipeServiceImpl implements RecipeService {
         RecipeEntity recipe = recipeRepository.findById(id).get();
 
         recipe.setIngredients(null);
-       /* recipe.setComments(null);*/
+        recipe.setComments(null);
         user.getCreatedRecipes().remove(recipe);
         user.getFavoriteRecipes().remove(recipe);
         removeFromAllFavorites(id);
@@ -101,19 +101,7 @@ public class RecipeServiceImpl implements RecipeService {
         userRepository.saveAndFlush(user);
         recipeRepository.deleteById(id);
     }
-
-    @Override
-    public void deleteRecipeById(Long id) {
-        RecipeEntity recipe = recipeRepository.findById(id).get();
-        UserEntity user = recipe.getAuthor();
-        user.getCreatedRecipes().remove(recipe);
-        removeFromAllFavorites(id);
-        recipe.setAuthor(null);
-
-        userRepository.saveAndFlush(user);
-        recipeRepository.deleteById(id);
-    }
-
+    
     @Override
     public List<RecipeDetailsViewModel> getAllRecipesDetails() {
         return recipeRepository.findAll()

@@ -11,6 +11,5 @@ public interface RecipeService {
     List<AllRecipesViewModel> getAllRecipes();
     RecipeDetailsViewModel findRecipeById(Long id);
     void deleteRecipeById(Long id, String username);
-    void deleteRecipeById(Long id);
     List<RecipeDetailsViewModel> getAllRecipesDetails();
 }

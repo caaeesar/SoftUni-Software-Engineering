@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -59,8 +60,8 @@ public class AdminController {
     }
 
     @DeleteMapping("/delete-recipe/{id}")
-    public String deleteRecipe(@PathVariable Long id) {
-        recipeService.deleteRecipeById(id);
+    public String deleteRecipe(@PathVariable Long id, Principal principal) {
+        recipeService.deleteRecipeById(id, principal.getName());
         return "redirect:/admin/all-recipes";
     }
 

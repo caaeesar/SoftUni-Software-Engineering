@@ -42,4 +42,7 @@ public class RecipeEntity extends BaseEntity {
     @Column(nullable = false)
     private LocalTime preparationTime;
 
+    @OneToMany(mappedBy = "recipe", targetEntity = CommentEntity.class)
+    private List<CommentEntity> comments;
+
 }
