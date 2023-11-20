@@ -23,6 +23,7 @@ public class SecurityConfiguration {
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                 .requestMatchers("/", "/about", "/recipes/all").permitAll()
                                 .requestMatchers("/recipes/details/{id}").permitAll()
+                                .requestMatchers("/api/**").permitAll()
                                 .requestMatchers("/users/register", "/users/login", "/users/login-error").anonymous()
                                 .requestMatchers("/admin/**").hasRole(RoleName.ADMINISTRATOR.name())
                                 .requestMatchers("/recipes/add",
