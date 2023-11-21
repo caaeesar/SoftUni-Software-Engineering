@@ -1,4 +1,4 @@
-package bg.softuni.cookingadventure.util.validation;
+package bg.softuni.cookingadventure.utils.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

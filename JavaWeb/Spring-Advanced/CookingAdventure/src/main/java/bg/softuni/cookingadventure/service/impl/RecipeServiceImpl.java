@@ -8,12 +8,8 @@ import bg.softuni.cookingadventure.model.entity.UserEntity;
 import bg.softuni.cookingadventure.model.service.RecipeAddServiceModel;
 import bg.softuni.cookingadventure.model.view.AllRecipesViewModel;
 import bg.softuni.cookingadventure.model.view.RecipeDetailsViewModel;
-import bg.softuni.cookingadventure.repository.CategoryRepository;
-import bg.softuni.cookingadventure.repository.IngredientRepository;
-import bg.softuni.cookingadventure.repository.RecipeRepository;
-import bg.softuni.cookingadventure.repository.UserRepository;
+import bg.softuni.cookingadventure.repository.*;
 import bg.softuni.cookingadventure.service.RecipeService;
-import bg.softuni.cookingadventure.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,14 +24,17 @@ public class RecipeServiceImpl implements RecipeService {
     private final RecipeRepository recipeRepository;
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
+
+    private final CommentRepository commentRepository;
     private final IngredientRepository ingredientRepository;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public RecipeServiceImpl(UserRepository userRepository, CategoryRepository categoryRepository, RecipeRepository recipeRepository, IngredientRepository ingredientRepository, ModelMapper modelMapper) {
+    public RecipeServiceImpl(UserRepository userRepository, CategoryRepository categoryRepository, RecipeRepository recipeRepository, CommentRepository commentRepository, IngredientRepository ingredientRepository, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
         this.recipeRepository = recipeRepository;
+        this.commentRepository = commentRepository;
         this.ingredientRepository = ingredientRepository;
         this.modelMapper = modelMapper;
     }
@@ -93,6 +92,7 @@ public class RecipeServiceImpl implements RecipeService {
         RecipeEntity recipe = recipeRepository.findById(id).get();
 
         recipe.setIngredients(null);
+        commentRepository.deleteAll(recipe.getComments());
         recipe.setComments(null);
         user.getCreatedRecipes().remove(recipe);
         user.getFavoriteRecipes().remove(recipe);

@@ -1,6 +1,6 @@
 package bg.softuni.cookingadventure.model.binding;
 
-import bg.softuni.cookingadventure.util.validation.FieldMatch;
+import bg.softuni.cookingadventure.utils.validation.FieldMatch;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
