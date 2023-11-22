@@ -28,7 +28,6 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final RecipeRepository recipeRepository;
-
     private final CommentRepository commentRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
@@ -141,7 +140,7 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
             RecipeEntity recipe = iterator.next();
             favoriteRecipes.remove(recipe);
         }
-        
+
         user.setRoles(null);
         userRepository.deleteById(id);
     }
