@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "resipes")
+@Table(name = "recipes")
 @Getter
 @Setter
 public class RecipeEntity extends BaseEntity {

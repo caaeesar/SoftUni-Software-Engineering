@@ -133,14 +133,7 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
             deleteRecipeById(recipe.getId(), user.getUsername());
         }
 
-        Set<RecipeEntity> favoriteRecipes = user.getFavoriteRecipes();
-        Iterator<RecipeEntity> iterator = favoriteRecipes.iterator();
-
-        while (iterator.hasNext()) {
-            RecipeEntity recipe = iterator.next();
-            favoriteRecipes.remove(recipe);
-        }
-
+        user.setFavoriteRecipes(new HashSet<>());
         user.setRoles(null);
         userRepository.deleteById(id);
     }
