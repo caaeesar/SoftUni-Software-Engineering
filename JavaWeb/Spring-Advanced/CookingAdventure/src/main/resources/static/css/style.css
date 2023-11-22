@@ -398,6 +398,10 @@ li {
     margin-bottom: 20px;
 }
 
+.role-management-column {
+    position: relative;
+}
+
 .role-management-form {
     display: flex;
     flex-direction: column;

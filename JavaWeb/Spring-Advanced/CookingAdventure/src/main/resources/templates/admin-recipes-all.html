@@ -5,7 +5,8 @@
 <header th:replace="~{fragments/commons::nav}"></header>
 
 <div class="all-container">
-    <h2 class="all-h2">All recipes</h2>
+    <h2 class="all-h2">All recipes <span
+            th:text="${recipes.size()}"></span> </h2>
     <table>
         <tbody>
         <tr th:each="recipe : ${recipes}">

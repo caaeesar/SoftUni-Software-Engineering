@@ -1,5 +1,6 @@
 package bg.softuni.cookingadventure.service.impl;
 
+import bg.softuni.cookingadventure.model.entity.CommentEntity;
 import bg.softuni.cookingadventure.model.entity.RecipeEntity;
 import bg.softuni.cookingadventure.model.entity.RoleEntity;
 import bg.softuni.cookingadventure.model.entity.UserEntity;
@@ -8,6 +9,7 @@ import bg.softuni.cookingadventure.model.service.UserServiceModel;
 import bg.softuni.cookingadventure.model.view.FavoriteRecipesViewModel;
 import bg.softuni.cookingadventure.model.view.MyRecipesViewModel;
 import bg.softuni.cookingadventure.model.view.UserViewModel;
+import bg.softuni.cookingadventure.repository.CommentRepository;
 import bg.softuni.cookingadventure.repository.RecipeRepository;
 import bg.softuni.cookingadventure.repository.RoleRepository;
 import bg.softuni.cookingadventure.repository.UserRepository;
@@ -17,28 +19,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends CommonServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final RecipeRepository recipeRepository;
+
+    private final CommentRepository commentRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, RecipeRepository recipeRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(
+            UserRepository userRepository,
+            RecipeRepository recipeRepository,
+            CommentRepository commentRepository,
+            RoleRepository roleRepository,
+            PasswordEncoder passwordEncoder,
+            ModelMapper modelMapper) {
+        super(userRepository, recipeRepository, commentRepository);
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.recipeRepository = recipeRepository;
-        this.modelMapper = modelMapper;
+        this.commentRepository = commentRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -115,16 +124,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         UserEntity user = userRepository.findById(id).get();
-        List<RecipeEntity> recipes = user.getCreatedRecipes();
 
-        for (int i = 0; i < recipes.size(); i++) {
-            RecipeEntity recipe = recipes.get(i);
-            recipe.setAuthor(null);
+        List<CommentEntity> comments = commentRepository.findAllByAuthor_Id(user.getId());
+        commentRepository.deleteAll(comments);
+
+        List<RecipeEntity> createdRecipes = user.getCreatedRecipes();
+        for (int i = 0; i < createdRecipes.size(); i++) {
+            RecipeEntity recipe = createdRecipes.get(i);
+            deleteRecipeById(recipe.getId(), user.getUsername());
         }
-        user.setRoles(null);
-        user.setFavoriteRecipes(null);
-        user.setCreatedRecipes(null);
 
+        Set<RecipeEntity> favoriteRecipes = user.getFavoriteRecipes();
+        Iterator<RecipeEntity> iterator = favoriteRecipes.iterator();
+
+        while (iterator.hasNext()) {
+            RecipeEntity recipe = iterator.next();
+            favoriteRecipes.remove(recipe);
+        }
+        
+        user.setRoles(null);
         userRepository.deleteById(id);
     }
 

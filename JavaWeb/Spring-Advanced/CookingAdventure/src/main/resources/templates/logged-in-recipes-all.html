@@ -9,7 +9,8 @@
         <div class="row">
 
             <div class="common-style col-md-4 mt-1 mb-1 ">
-                <h3 class="mySticky bg-gray text-dark mb-0 mt-2">All Recipes</h3>
+                <h3 class="mySticky bg-gray text-dark mb-0 mt-2">All Recipes <span
+                        th:text="${allRecipes.size()}"></span></h3>
                 <div class="bg-white rounded m-auto recipe-container">
                     <div th:each="recipe : ${allRecipes}" class="recipe-card">
                         <img th:src="${recipe.imageUrl}" th:alt="${recipe.title}"/>
@@ -30,7 +31,8 @@
 
             <div class="common-style col-md-4 mt-1 mb-1">
                 <div>
-                    <h3 class="mySticky bg-gray text-dark mb-0 mt-2">My Recipes</h3>
+                    <h3 class="mySticky bg-gray text-dark mb-0 mt-2">My Recipes <span
+                            th:text="${myRecipes.size()}"></span></h3>
                     <div class="bg-white rounded m-auto recipe-container">
                         <div th:each="myRecipe : ${myRecipes}" class="recipe-card">
                             <img th:src="${myRecipe.imageUrl}" th:alt="${myRecipe.title}"/>
@@ -50,7 +52,8 @@
 
             <div class="common-style col-md-4 mt-1 mb-1">
                 <div>
-                    <h3 class="mySticky bg-gray text-dark mb-0 mt-2">Favorite Recipes</h3>
+                    <h3 class="mySticky bg-gray text-dark mb-0 mt-2">Favorite Recipes <span
+                            th:text="${favoriteRecipes.size()}"></span></h3>
                     <div class="bg-white rounded m-auto recipe-container">
                         <div th:each="favoriteRecipe : ${favoriteRecipes}" class="recipe-card">
                             <img th:src="${favoriteRecipe.imageUrl}" th:alt="${favoriteRecipe.title}"/>

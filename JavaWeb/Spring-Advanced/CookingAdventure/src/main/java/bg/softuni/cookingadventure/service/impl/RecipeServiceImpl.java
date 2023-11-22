@@ -20,21 +20,25 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class RecipeServiceImpl implements RecipeService {
+public class RecipeServiceImpl extends CommonServiceImpl implements RecipeService {
     private final RecipeRepository recipeRepository;
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
-
-    private final CommentRepository commentRepository;
     private final IngredientRepository ingredientRepository;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public RecipeServiceImpl(UserRepository userRepository, CategoryRepository categoryRepository, RecipeRepository recipeRepository, CommentRepository commentRepository, IngredientRepository ingredientRepository, ModelMapper modelMapper) {
+    public RecipeServiceImpl(
+            UserRepository userRepository,
+            RecipeRepository recipeRepository,
+            CommentRepository commentRepository,
+            CategoryRepository categoryRepository,
+            IngredientRepository ingredientRepository,
+            ModelMapper modelMapper) {
+        super(userRepository, recipeRepository, commentRepository);
         this.userRepository = userRepository;
-        this.categoryRepository = categoryRepository;
         this.recipeRepository = recipeRepository;
-        this.commentRepository = commentRepository;
+        this.categoryRepository = categoryRepository;
         this.ingredientRepository = ingredientRepository;
         this.modelMapper = modelMapper;
     }
@@ -61,7 +65,7 @@ public class RecipeServiceImpl implements RecipeService {
 
         UserEntity user = userRepository.findUserByUsername(username).get();
         CategoryEntity category = categoryRepository.getByNameIs(recipeAddServiceModel.getCategory());
-        RecipeEntity recipe = modelMapper.map(recipeAddServiceModel,RecipeEntity.class);
+        RecipeEntity recipe = modelMapper.map(recipeAddServiceModel, RecipeEntity.class);
 
         recipe.getIngredients().addAll(ingredients);
         recipe.setCategory(category);
@@ -87,22 +91,6 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public void deleteRecipeById(Long id, String username) {
-        UserEntity user = userRepository.findUserByUsername(username).get();
-        RecipeEntity recipe = recipeRepository.findById(id).get();
-
-        recipe.setIngredients(null);
-        commentRepository.deleteAll(recipe.getComments());
-        recipe.setComments(null);
-        user.getCreatedRecipes().remove(recipe);
-        user.getFavoriteRecipes().remove(recipe);
-        removeFromAllFavorites(id);
-
-        userRepository.saveAndFlush(user);
-        recipeRepository.deleteById(id);
-    }
-    
-    @Override
     public List<RecipeDetailsViewModel> getAllRecipesDetails() {
         return recipeRepository.findAll()
                 .stream()
@@ -110,13 +98,4 @@ public class RecipeServiceImpl implements RecipeService {
                 .collect(Collectors.toList());
     }
 
-    private void removeFromAllFavorites(Long id) {
-        List<UserEntity> users = userRepository.findAll();
-        RecipeEntity recipe = recipeRepository.findById(id).get();
-
-        for (UserEntity user : users) {
-            user.getFavoriteRecipes().remove(recipe);
-            userRepository.save(user);
-        }
-    }
 }

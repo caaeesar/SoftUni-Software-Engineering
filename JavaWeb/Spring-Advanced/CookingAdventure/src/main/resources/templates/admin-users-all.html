@@ -5,7 +5,8 @@
 <header th:replace="~{fragments/commons::nav}"></header>
 
 <div class="all-container">
-    <h2 class="all-h2">All users</h2>
+    <h2 class="all-h2">All users <span
+            th:text="${users.size()}"></span></h2>
     <table>
         <tbody>
         <tr th:each="user : ${users}">
@@ -27,13 +28,15 @@
                 </form>
             </td>
 
-            <td>
+            <td class="role-management-column">
                 <form th:action="@{/admin/manage-roles/{id}(id=${user.id})}" th:method="POST"
                       class="role-selection-form">
                     <div th:each="role : ${roles}" class="role-checkbox">
                         <input class="form-check-input" type="checkbox" name="roleIds"
-                               th:id="'roleCheckbox' + ${role.id}" th:value="${role.id}">
-                        <label class="form-check-label" th:for="'roleCheckbox' + ${role.id}"
+                               th:id="'roleCheckbox_' + ${user.id} + '_' + ${role.id}"
+                               th:value="${role.id}">
+                        <label class="form-check-label"
+                               th:for="'roleCheckbox_' + ${user.id} + '_' + ${role.id}"
                                th:text="${role.name}"></label>
                     </div>
                     <input class="remove-button" type="submit" value="Manage Roles"/>
