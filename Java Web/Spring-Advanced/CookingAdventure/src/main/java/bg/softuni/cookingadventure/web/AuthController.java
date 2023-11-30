@@ -72,13 +72,6 @@ public class AuthController {
         return "auth-login";
     }
 
-    @GetMapping("/profile")
-    public String profile(Principal principal, Model model) {
-        UserProfileViewModel userProfileViewModel = modelMapper.map(userService.getUserByUsername(principal.getName()), UserProfileViewModel.class);
-        model.addAttribute("userProfileViewModel", userProfileViewModel);
-        return "profile";
-    }
-
     @PostMapping("/login-error")
     public String loginError(Model model, @RequestParam(name = "username") String username) {
         Optional<UserEntity> userOptional = userService.getUserByUsername(username);
@@ -95,4 +88,10 @@ public class AuthController {
         return "auth-login";
     }
 
+    @GetMapping("/profile")
+    public String profile(Principal principal, Model model) {
+        UserProfileViewModel userProfileViewModel = modelMapper.map(userService.getUserByUsername(principal.getName()), UserProfileViewModel.class);
+        model.addAttribute("userProfileViewModel", userProfileViewModel);
+        return "profile";
+    }
 }
