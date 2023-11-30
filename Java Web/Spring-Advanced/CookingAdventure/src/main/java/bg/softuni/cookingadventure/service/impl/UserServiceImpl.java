@@ -7,6 +7,7 @@ import bg.softuni.cookingadventure.model.entity.UserEntity;
 import bg.softuni.cookingadventure.model.entity.enums.RoleName;
 import bg.softuni.cookingadventure.model.service.UserServiceModel;
 import bg.softuni.cookingadventure.model.view.FavoriteRecipesViewModel;
+import bg.softuni.cookingadventure.model.view.InactiveUserViewModel;
 import bg.softuni.cookingadventure.model.view.MyRecipesViewModel;
 import bg.softuni.cookingadventure.model.view.UserViewModel;
 import bg.softuni.cookingadventure.repository.CommentRepository;
@@ -111,8 +112,8 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity getUserByUsername(String username) {
-        return userRepository.findUserByUsername(username).get();
+    public Optional<UserEntity> getUserByUsername(String username) {
+        return userRepository.findUserByUsername(username);
     }
 
     @Override
@@ -180,5 +181,19 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
             user.setActive(false);
             userRepository.save(user);
         }
+    }
+
+    @Override
+    public List<InactiveUserViewModel> getInactiveUsers() {
+        List<UserEntity> inactiveUsers = userRepository.findAll().stream().filter(userEntity -> !userEntity.isActive()).toList();
+        return inactiveUsers.stream().map(userEntity -> modelMapper.map(userEntity, InactiveUserViewModel.class)).toList();
+    }
+
+    @Override
+    public void activateUserById(Long id) {
+        UserEntity user = userRepository.findById(id).get();
+        user.setActive(true);
+        user.setLastLogin(LocalDateTime.now());
+        userRepository.save(user);
     }
 }

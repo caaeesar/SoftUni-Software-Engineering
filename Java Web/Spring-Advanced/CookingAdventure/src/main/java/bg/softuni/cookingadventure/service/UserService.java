@@ -3,10 +3,12 @@ package bg.softuni.cookingadventure.service;
 import bg.softuni.cookingadventure.model.entity.UserEntity;
 import bg.softuni.cookingadventure.model.service.UserServiceModel;
 import bg.softuni.cookingadventure.model.view.FavoriteRecipesViewModel;
+import bg.softuni.cookingadventure.model.view.InactiveUserViewModel;
 import bg.softuni.cookingadventure.model.view.MyRecipesViewModel;
 import bg.softuni.cookingadventure.model.view.UserViewModel;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public interface UserService {
@@ -15,11 +17,14 @@ public interface UserService {
     Set<FavoriteRecipesViewModel> findFavoriteRecipes(String username);
     void addToFavorite(Long id, String username);
     void removeFromFavorite(Long id, String username);
-    UserEntity getUserByUsername(String username);
+    Optional<UserEntity> getUserByUsername(String username);
     List<UserViewModel> getAllUsers();
     void deleteUser(Long id);
     void manageUserRoles(Long id, List<Long> roleIds);
     void incrementLoginCount(String username);
     void markUserAsActive(String username);
     void deleteInactiveUsers();
+    List<InactiveUserViewModel> getInactiveUsers();
+
+    void activateUserById(Long id);
 }

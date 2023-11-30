@@ -1,5 +1,6 @@
 package bg.softuni.cookingadventure.web;
 
+import bg.softuni.cookingadventure.model.view.InactiveUserViewModel;
 import bg.softuni.cookingadventure.model.view.RecipeDetailsViewModel;
 import bg.softuni.cookingadventure.model.view.UserViewModel;
 import bg.softuni.cookingadventure.service.RecipeService;
@@ -63,6 +64,19 @@ public class AdminController {
     public String deleteRecipe(@PathVariable Long id, Principal principal) {
         recipeService.deleteRecipeById(id, principal.getName());
         return "redirect:/admin/all-recipes";
+    }
+
+    @GetMapping("/inactive-users")
+    public String getInactiveUsers(Model model) {
+        List<InactiveUserViewModel> inactiveUsers = userService.getInactiveUsers();
+        model.addAttribute("users", inactiveUsers);
+        return "admin-inactive-users";
+    }
+
+    @PostMapping("/activate-user/{id}")
+    public String activateUser(@PathVariable Long id) {
+        userService.activateUserById(id);
+        return "redirect:/admin/inactive-users";
     }
 
 }
