@@ -172,7 +172,7 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteInactiveUsers() {
+    public void deactivateInactiveUsers() {
         LocalDateTime expirationTime = LocalDateTime.now().minusDays(365);
         List<UserEntity> inactiveUsers = userRepository.findInactiveUsers(expirationTime);
 

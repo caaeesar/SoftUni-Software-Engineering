@@ -23,7 +23,7 @@ public interface UserService {
     void manageUserRoles(Long id, List<Long> roleIds);
     void incrementLoginCount(String username);
     void markUserAsActive(String username);
-    void deleteInactiveUsers();
+    void deactivateInactiveUsers();
     List<InactiveUserViewModel> getInactiveUsers();
 
     void activateUserById(Long id);

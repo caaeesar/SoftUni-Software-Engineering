@@ -79,7 +79,7 @@ public class AuthController {
         if (userOptional.isPresent()) {
             UserEntity user = userOptional.get();
 
-            if (!user.isActive()) {
+            if (!user.isActive() && user.getLastLogin() != null) {
                 model.addAttribute("inactive", true);
             } else {
                 model.addAttribute("badCredentials", true);

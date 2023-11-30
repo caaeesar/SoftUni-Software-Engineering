@@ -16,6 +16,6 @@ public class InactiveUsersCleanupScheduler {
     }
     @Scheduled(cron = "0 0 * * * *")
     public void cleanupInactiveUsers() {
-        userService.deleteInactiveUsers();
+        userService.deactivateInactiveUsers();
     }
 }
