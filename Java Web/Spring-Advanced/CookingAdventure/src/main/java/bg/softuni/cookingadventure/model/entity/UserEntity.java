@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -38,6 +39,15 @@ public class UserEntity extends BaseEntity {
     @Column
     @Positive
     private int age;
+
+    @Column(name = "is_active", nullable = false)
+    private boolean isActive;
+
+    @Column(nullable = false)
+    private int loginCount = 0;
+
+    @Column(name = "last_login")
+    private LocalDateTime lastLogin;
 
     @ManyToMany
     @JoinTable(

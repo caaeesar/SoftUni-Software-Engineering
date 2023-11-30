@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -145,5 +146,39 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
 
         user.setRoles(new HashSet<>(roles));
         userRepository.save(user);
+    }
+
+    @Override
+    public void incrementLoginCount(String username) {
+        Optional<UserEntity> optionalUser = userRepository.findUserByUsername(username);
+        if (optionalUser.isPresent()) {
+            UserEntity user = optionalUser.get();
+            user.setLoginCount(user.getLoginCount() + 1);
+            user.setLastLogin(LocalDateTime.now());
+            userRepository.save(user);
+        }
+    }
+
+    @Override
+    public void markUserAsActive(String username) {
+        Optional<UserEntity> optionalUser = userRepository.findUserByUsername(username);
+        if (optionalUser.isPresent()) {
+            UserEntity user = optionalUser.get();
+            user.setActive(true);
+            user.setLastLogin(LocalDateTime.now());
+            userRepository.save(user);
+        }
+    }
+
+    @Override
+    public void deleteInactiveUsers() {
+        LocalDateTime expirationTime = LocalDateTime.now().minusDays(365);
+        List<UserEntity> inactiveUsers = userRepository.findInactiveUsers(expirationTime);
+
+        for (int i = 0; i < inactiveUsers.size(); i++) {
+            UserEntity user = inactiveUsers.get(i);
+            user.setActive(false);
+            userRepository.save(user);
+        }
     }
 }

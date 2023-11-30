@@ -1,5 +1,6 @@
 package bg.softuni.cookingadventure.service.impl;
 
+import bg.softuni.cookingadventure.exception.UserDisabledException;
 import bg.softuni.cookingadventure.model.entity.UserEntity;
 import bg.softuni.cookingadventure.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +21,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity userEntity = userRepository.findUserByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User with " + username + " username not found!"));
+
+        if (!userEntity.isActive() && userEntity.getLastLogin() != null) {
+            throw new UserDisabledException(username);
+        }
 
         UserDetails userDetails = User.withUsername(userEntity.getUsername())
                 .password(userEntity.getPassword())

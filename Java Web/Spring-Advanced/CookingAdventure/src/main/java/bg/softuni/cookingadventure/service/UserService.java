@@ -19,4 +19,7 @@ public interface UserService {
     List<UserViewModel> getAllUsers();
     void deleteUser(Long id);
     void manageUserRoles(Long id, List<Long> roleIds);
+    void incrementLoginCount(String username);
+    void markUserAsActive(String username);
+    void deleteInactiveUsers();
 }
