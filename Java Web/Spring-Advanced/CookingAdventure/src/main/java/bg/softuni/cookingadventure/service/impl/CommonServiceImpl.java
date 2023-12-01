@@ -15,9 +15,7 @@ import java.util.List;
 public class CommonServiceImpl implements CommonService {
 
     private final UserRepository userRepository;
-
     private final RecipeRepository recipeRepository;
-
     private final CommentRepository commentRepository;
 
     @Autowired

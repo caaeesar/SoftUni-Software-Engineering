@@ -5,26 +5,26 @@
 <header th:replace="~{fragments/commons::nav}"></header>
 
 <div class="all-container">
-  <h2 class="all-h2">Inactive users</h2>
-  <table>
-    <tbody>
-    <tr th:each="user : ${users}">
-      <td th:text="${user.id}"></td>
-      <td th:text="${user.username}"></td>
-      <td th:text="${user.email}"></td>
-      <td th:text="${user.firstName}"></td>
-      <td th:text="${user.lastName}"></td>
-      <td th:text="${user.age}"></td>
+    <h2 class="all-h2">Inactive users</h2>
+    <table>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.age}"></td>
 
-      <td class="delete-column">
-        <form th:action="@{/admin/activate-user/{id}(id=${user.id})}" th:method="POST">
-          <input class="activate-button" type="submit" value="Activation"/>
-        </form>
-      </td>
+            <td class="delete-column">
+                <form th:action="@{/admin/activate-user/{id}(id=${user.id})}" th:method="POST">
+                    <input class="activate-button" type="submit" value="Activation"/>
+                </form>
+            </td>
 
-    </tr>
-    </tbody>
-  </table>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 <footer th:replace="~{fragments/commons::footer}"></footer>
