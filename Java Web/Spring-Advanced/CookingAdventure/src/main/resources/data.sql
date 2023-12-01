@@ -35,7 +35,6 @@ VALUES ('admin@example.com', 'admin',
 INSERT INTO `users_roles` (`user_id`, `role_id`)
 VALUES (1, 1);
 
-
 INSERT INTO `recipes` (`title`, `description`, `image_url`, `preparation_time`, `category_id`, `author_id`)
 VALUES ('Simple Spaghetti Fra Diavolo',
         'Simple Spaghetti Fra Diavolo is a classic pasta dish you can make with just a handful of simple ingredients! You can make the spicy tomato sauce in about the time is takes to bring a large pot of water to boil. Then juice mix together the al dente pasta, pasta sauce, and fresh herbs.',
