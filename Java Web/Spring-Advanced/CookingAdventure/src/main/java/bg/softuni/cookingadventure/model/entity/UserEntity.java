@@ -28,11 +28,11 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column
+    @Column(name = "first_name")
     @Size(max = 70)
     private String firstName;
 
-    @Column
+    @Column(name = "last_name")
     @Size(max = 70)
     private String lastName;
 
@@ -40,11 +40,11 @@ public class UserEntity extends BaseEntity {
     @Positive
     private int age;
 
-    @Column(name = "is_active")
-    private boolean isActive;
+    @Column(name = "is_active", nullable = false)
+    private boolean isActive = false;
 
-    @Column
-    private int loginCount;
+    @Column(name = "login_count", nullable = false)
+    private int loginCount = 0;
 
     @Column(name = "last_login")
     private LocalDateTime lastLogin;

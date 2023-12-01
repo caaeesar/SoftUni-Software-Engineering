@@ -81,10 +81,10 @@ public class AuthController {
 
             if (!user.isActive() && user.getLastLogin() != null) {
                 model.addAttribute("inactive", true);
-            } else {
-                model.addAttribute("badCredentials", true);
+                return "auth-login";
             }
         }
+        model.addAttribute("badCredentials", true);
         return "auth-login";
     }
 
