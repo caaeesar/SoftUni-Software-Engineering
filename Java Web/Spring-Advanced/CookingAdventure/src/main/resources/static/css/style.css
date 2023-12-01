@@ -282,7 +282,7 @@ html, body {
     margin-bottom: 15px;
 }
 
-/* Recipes all - logging */
+/* Recipes all - logged in */
 .common-style {
     background-color: rgba(169, 169, 169, 0.7);
 }
@@ -351,7 +351,6 @@ html, body {
 }
 
 /*  Admin */
-
 .all-container {
     padding-top: 100px;
     width: 100%;

@@ -40,11 +40,11 @@ public class UserEntity extends BaseEntity {
     @Positive
     private int age;
 
-    @Column(name = "is_active", nullable = false)
+    @Column(name = "is_active")
     private boolean isActive;
 
-    @Column(nullable = false)
-    private int loginCount = 0;
+    @Column
+    private int loginCount;
 
     @Column(name = "last_login")
     private LocalDateTime lastLogin;
