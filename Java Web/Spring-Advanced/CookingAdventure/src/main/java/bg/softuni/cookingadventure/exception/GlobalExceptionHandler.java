@@ -13,5 +13,5 @@ public class GlobalExceptionHandler {
     public String handleException() {
         return "500";
     }
-    
+
 }
