@@ -13,10 +13,5 @@ public class GlobalExceptionHandler {
     public String handleException() {
         return "500";
     }
-
-    @ExceptionHandler(ObjectNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleObjectNotFoundException() {
-        return "404";
-    }
+    
 }
