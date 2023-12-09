@@ -8,6 +8,19 @@
     <h2 class="all-h2">All users <span
             th:text="${users.size()}"></span></h2>
     <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Roles</th>
+            <th>Action</th>
+            <th>Role Management</th>
+        </tr>
+        </thead>
         <tbody>
         <tr th:each="user : ${users}">
             <td th:text="${user.id}"></td>
@@ -24,7 +37,7 @@
 
             <td class="delete-column">
                 <form th:action="@{/admin/delete-user/{id}(id=${user.id})}" th:method="DELETE">
-                    <input class="delete-button" type="submit" value="Delete"/>
+                    <input class="deleteAdmin-button" type="submit" value="Delete"/>
                 </form>
             </td>
 
@@ -39,7 +52,7 @@
                                th:for="'roleCheckbox_' + ${user.id} + '_' + ${role.id}"
                                th:text="${role.name}"></label>
                     </div>
-                    <input class="remove-button" type="submit" value="Manage Roles"/>
+                    <input class="manage-button" type="submit" value="Manage Roles"/>
                 </form>
             </td>
         </tr>

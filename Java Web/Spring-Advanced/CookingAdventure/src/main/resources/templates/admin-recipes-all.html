@@ -8,6 +8,18 @@
     <h2 class="all-h2">All recipes <span
             th:text="${recipes.size()}"></span></h2>
     <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Ingredients</th>
+            <th>Action</th>
+        </tr>
+        </thead>
         <tbody>
         <tr th:each="recipe : ${recipes}">
             <td th:text="${recipe.id}"></td>
@@ -26,7 +38,7 @@
 
             <td>
                 <form th:action="@{/admin/delete-recipe/{id}(id=${recipe.id})}" th:method="DELETE">
-                    <input class="delete-button" type="submit" value="Delete"/>
+                    <input class="deleteAdmin-button" type="submit" value="Delete"/>
                 </form>
             </td>
         </tr>

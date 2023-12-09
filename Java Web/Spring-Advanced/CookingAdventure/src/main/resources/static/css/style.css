@@ -231,7 +231,7 @@ html, body {
     background-color: #4CAF50;
     color: #fff;
     border: none;
-    padding: 13px 16px;
+    padding: 11px 13px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -301,44 +301,79 @@ html, body {
 }
 
 .favorite-button {
-    display: inline-block;
-    padding: 10px 15px;
+     /*   display: inline-block;
+        padding: 11px 13px;
+        background-color: #ff4081;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        float: left;*/
     background-color: #ff4081;
-    color: #fff;
+    color:  #fff;
     border: none;
-    border-radius: 5px;
+    padding: 11px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
     cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    float: left;
     transition: background-color 0.3s ease;
 }
 
+.recipe-card h3 {
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
 .favorite-button:hover {
-    background-color: #d81b60;
+    background-color: darkslateblue;
 }
 
 
 .delete-button {
-    display: inline-block;
-    padding: 10px 15px;
     background-color: #ff5252;
-    color: #fff;
+    color:  #fff;
     border: none;
-    border-radius: 5px;
+    padding: 11px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
     cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    float: left;
     transition: background-color 0.3s ease;
 }
 
 .delete-button:hover {
-    background-color: #333333;
+    background-color: darkred;
 }
 
 .remove-button {
-    display: inline-block;
-    padding: 10px 15px;
     background-color: #2196F3;
-    color: #fff;
+    color:  #fff;
     border: none;
-    border-radius: 5px;
+    padding: 11px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
     cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    float: right;
     transition: background-color 0.3s ease;
 }
 
@@ -412,6 +447,7 @@ li {
 
 .role-management-column {
     position: relative;
+    width: 20%;
 }
 
 .role-management-form {
@@ -440,16 +476,51 @@ li {
 
 .activate-button {
     background-color: yellowgreen;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 12px;
+    padding: 10px 15px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-
 .activate-button:hover {
     background-color: green;
+}
+
+.deleteAdmin-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ff5252;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deleteAdmin-button:hover {
+    background-color: darkred;
+}
+
+.manage-button {
+    background-color: #2196F3;
+    color:  #fff;
+    border: none;
+    padding: 9px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 170px;
+    transition: background-color 0.3s ease;
+}
+
+.manage-button:hover {
+    background-color: #1565C0;
 }
 
 /*  Comments */
