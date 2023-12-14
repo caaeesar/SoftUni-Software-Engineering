@@ -2,10 +2,7 @@ package bg.softuni.cookingadventure.service;
 
 import bg.softuni.cookingadventure.model.entity.UserEntity;
 import bg.softuni.cookingadventure.model.service.UserServiceModel;
-import bg.softuni.cookingadventure.model.view.FavoriteRecipesViewModel;
-import bg.softuni.cookingadventure.model.view.InactiveUserViewModel;
-import bg.softuni.cookingadventure.model.view.MyRecipesViewModel;
-import bg.softuni.cookingadventure.model.view.UserViewModel;
+import bg.softuni.cookingadventure.model.view.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +22,6 @@ public interface UserService {
     void markUserAsActive(String username);
     void deactivateInactiveUsers();
     List<InactiveUserViewModel> getInactiveUsers();
-
     void activateUserById(Long id);
+    void editProfileInfo(UserProfileViewModel userProfileViewModel, String username);
 }

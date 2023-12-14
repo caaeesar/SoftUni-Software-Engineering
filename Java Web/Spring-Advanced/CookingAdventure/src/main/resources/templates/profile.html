@@ -11,6 +11,11 @@
                 <div class="profile-card p-3 py-4">
                     <div class="text-center"><img src="/images/profile.jpg" width="100" class="rounded-circle">
                     </div>
+                    <form th:action="@{/profile/edit}" th:method="GET">
+                        <button type="submit" class="edit-button">
+                            <span>&#9998;</span>
+                        </button>
+                    </form>
                     <div class="text-center mt-3" th:object="${userProfileViewModel}">
                         <h5 class="mt-2 mb-0">Username</h5>
                         <span th:text="${userProfileViewModel.username}">Username</span>
@@ -18,6 +23,8 @@
                         <span th:text="${userProfileViewModel.firstName}">First name</span>
                         <h5 class="mt-4 mb-0">Last name</h5>
                         <span th:text="${userProfileViewModel.lastName}">Last name</span>
+                        <h5 class="mt-2 mb-0">Email</h5>
+                        <span th:text="${userProfileViewModel.email}">some@example.com</span>
                         <h5 class="mt-2 mb-0">Age</h5>
                         <span th:text="${userProfileViewModel.age}">33</span>
                     </div>
@@ -29,3 +36,4 @@
 <footer th:replace="~{fragments/commons::footer}" class="footer bg-blur rounded"></footer>
 </body>
 </html>
+

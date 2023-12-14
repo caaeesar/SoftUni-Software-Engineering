@@ -6,10 +6,7 @@ import bg.softuni.cookingadventure.model.entity.RoleEntity;
 import bg.softuni.cookingadventure.model.entity.UserEntity;
 import bg.softuni.cookingadventure.model.entity.enums.RoleName;
 import bg.softuni.cookingadventure.model.service.UserServiceModel;
-import bg.softuni.cookingadventure.model.view.FavoriteRecipesViewModel;
-import bg.softuni.cookingadventure.model.view.InactiveUserViewModel;
-import bg.softuni.cookingadventure.model.view.MyRecipesViewModel;
-import bg.softuni.cookingadventure.model.view.UserViewModel;
+import bg.softuni.cookingadventure.model.view.*;
 import bg.softuni.cookingadventure.repository.CommentRepository;
 import bg.softuni.cookingadventure.repository.RecipeRepository;
 import bg.softuni.cookingadventure.repository.RoleRepository;
@@ -196,4 +193,17 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
         user.setLastLogin(LocalDateTime.now());
         userRepository.save(user);
     }
+
+    @Override
+    public void editProfileInfo(UserProfileViewModel userProfileViewModel, String username) {
+        UserEntity user = userRepository.findUserByUsername(username).get();
+
+        user.setFirstName(userProfileViewModel.getFirstName());
+        user.setEmail(userProfileViewModel.getEmail());
+        user.setLastName(userProfileViewModel.getLastName());
+        user.setAge(userProfileViewModel.getAge());
+
+        userRepository.save(user);
+    }
+
 }

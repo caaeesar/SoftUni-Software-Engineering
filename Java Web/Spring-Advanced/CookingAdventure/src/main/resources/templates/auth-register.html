@@ -81,7 +81,7 @@
                class="form-control" id="inputLastName"
                placeholder="Last name">
         <small th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-               class="text-danger invalid-feedback">First name error message</small>
+               class="text-danger invalid-feedback">Last name error message</small>
     </div>
 
     <div class="form-row">
@@ -90,7 +90,7 @@
             <input th:field="*{age}" th:errorclass=" 'is-invalid bg-danger' "
                    type="number" required class="form-control" id="inputAge">
             <small th:if="${#fields.hasErrors('age')}" th:errors="*{age}"
-                   class="text-danger invalid-feedback">First name error message</small>
+                   class="text-danger invalid-feedback">Age error message</small>
         </div>
     </div>
     <p>Already have an account? <a href="/users/login">Login here</a></p>

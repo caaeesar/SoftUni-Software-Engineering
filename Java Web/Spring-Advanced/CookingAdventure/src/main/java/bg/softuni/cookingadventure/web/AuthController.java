@@ -88,10 +88,4 @@ public class AuthController {
         return "auth-login";
     }
 
-    @GetMapping("/profile")
-    public String profile(Principal principal, Model model) {
-        UserProfileViewModel userProfileViewModel = modelMapper.map(userService.getUserByUsername(principal.getName()), UserProfileViewModel.class);
-        model.addAttribute("userProfileViewModel", userProfileViewModel);
-        return "profile";
-    }
 }

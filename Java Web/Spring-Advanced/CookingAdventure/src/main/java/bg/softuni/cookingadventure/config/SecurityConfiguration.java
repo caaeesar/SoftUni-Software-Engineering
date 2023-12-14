@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                                 .requestMatchers("/users/register", "/users/login", "/users/login-error").anonymous()
                                 .requestMatchers("/admin/**").hasRole(RoleName.ADMINISTRATOR.name())
                                 .requestMatchers("/recipes/add",
-                                        "/users/profile",
+                                        "/profile/**",
                                         "/recipes/favorite/{id}",
                                         "/recipes/delete/{id}",
                                         "/recipes/remove/{id}")
