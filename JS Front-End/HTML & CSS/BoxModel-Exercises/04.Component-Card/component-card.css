@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 2em;
+    background: #eee;
+}
+
+.container-card {
+    display: block;
+    width: 23em;
+    margin: 0 auto; 
+    text-decoration: none;
+    color: #333;
+    background: #fff;
+    border-radius: 0.3em;
+    overflow: hidden;
+}
+
+.container-card span {
+    display: block;
+}
+
+.container-card .main,
+.container-card .footer {
+    padding: 1em 2em;
+}
+
+.container-card strong {
+    display: block;
+    font-size: 1.2em;
+    padding-bottom: 0.5rem;
+}
+
+.container-card .footer span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container-card .footer span:first-child {
+    font-weight: bold;
+}
+
+.container-card .footer span:last-child {
+    font-style: italic;
+}
+
+.container-card:hover {
+    color: burlywood;
+}

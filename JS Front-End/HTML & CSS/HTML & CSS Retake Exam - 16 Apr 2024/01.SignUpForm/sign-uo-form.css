@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #999999;
+}
+
+a {
+    text-decoration: none;
+    color: #009966;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+.form {
+    background: #333333;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 40px;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,31 @@
+/* Type Selectors */
+h1 {
+    color: blue;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* Class Selectors */
+.highlight {
+    background-color: yellowgreen;
+}
+
+/* ID Selectors */
+#main-title {
+    color: blue;
+}
+
+#special-paragraph {
+    font-style: italic;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li {
+    color: goldenrod;
+}
+

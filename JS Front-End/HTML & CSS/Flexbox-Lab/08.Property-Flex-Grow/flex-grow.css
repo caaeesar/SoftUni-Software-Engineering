@@ -1,0 +1,34 @@
+.flex-container {
+    border: 2px solid blue;
+    width: 400px;
+    padding: 1em;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.flex-container .flex-item {
+    border: 2px solid black;
+    padding: 20px;
+    background: #eee;
+}
+
+.flex-container.flex-grow-one .flex-item {
+    flex-grow: 1;
+}
+
+.flex-container.flex-grow-2nd-only4 .flex-item:nth-child(2) {
+    flex-grow: 1;
+}
+
+.flex-container.flex-grow-proportional .flex-item:nth-child(1) {
+    flex-grow: 1;
+}
+
+.flex-container.flex-grow-proportional .flex-item:nth-child(2) {
+    flex-grow: 2;
+}
+
+.flex-container.flex-grow-proportional .flex-item:nth-child(3) {
+    flex-grow: 3;
+}

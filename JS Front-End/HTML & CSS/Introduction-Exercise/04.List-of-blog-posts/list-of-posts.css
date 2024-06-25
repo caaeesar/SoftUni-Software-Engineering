@@ -1,0 +1,7 @@
+details summary {
+    color: grey;
+}
+
+details summary time {
+    font-style: italic;
+}

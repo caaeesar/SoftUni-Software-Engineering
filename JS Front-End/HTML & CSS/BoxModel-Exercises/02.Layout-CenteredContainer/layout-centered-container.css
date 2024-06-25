@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 3px solid green;
+    padding: 2em;
+}
+
+.content {
+    border: 3px solid blue;
+    max-width: 900px;
+    margin: 0 auto; 
+}
+
+header, main, footer {
+    border: 3px solid black;
+    margin: 20px 20px;
+    padding: 20px 20px;
+}
+
+p {
+    text-align: center;
+}

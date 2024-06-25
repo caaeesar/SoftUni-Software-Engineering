@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.social-icons li {
+    display: inline-block;
+    width: 3em;
+    font-size: 2em;
+    border: 1px solid rgb(235, 235, 235) ;
+    background-color: rgb(235, 235, 235) ;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+    padding: 0.1em;
+    align-content: center;
+    text-align: center;
+}
+
+.social-icons li a {
+    color: black;
+    font-size: 2em;
+
+}
+.social-icons li:hover {
+    background-image: linear-gradient(to right, #ff9a9e, #fad0c4);
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    text-align: left;
+    margin: 0.5em;
+}

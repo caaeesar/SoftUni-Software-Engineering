@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 2px solid green;
+    padding: 2em;
+}
+
+.section {
+    border: 2px solid black;
+    padding: 20px 50px;
+    margin: 2em;
+}
+
+.container {
+    border: 2px solid blue;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.section > .container > p {
+    text-align: left;
+} 

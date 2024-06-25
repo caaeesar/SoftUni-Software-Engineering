@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee;
+    font-family: sans-serif;
+    padding: 2em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery li {
+    flex: 1 1 30%;
+    display: flex;
+    list-style: none outside;
+    border: 0.5em solid #333;
+    background: #fff;
+    padding: 1em;
+    box-shadow: 0 0 0.5em 0.1em rgb(0,0,0,0.2);
+    border-radius: 0.2em;
+}
+
+.gallery a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.gallery figure .media img {
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    border-radius: 0.9em;
+}
+
+.gallery figcaption {
+    font-style: italic;
+    opacity: 0.4;
+}

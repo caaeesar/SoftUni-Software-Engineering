@@ -1,0 +1,43 @@
+/* Descendant Selector */
+nav ul li a {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Pseudo-class Selector */
+nav ul li:first-child a {
+    font-weight: bold;
+}
+
+nav ul li:last-child a {
+    font-style: italic;
+}
+
+/* Child Combinator */
+#content > article > section {
+    background-color: cornflowerblue;
+    padding: 10px;
+    margin: 10px;
+}
+
+#content > article > h1::before {
+    content: "<<";
+    color: red;
+}
+
+#content > article > h1::after {
+    content: ">>";
+    color: red;
+}
+
+footer {
+    background-color: gray;
+    padding: 10px;
+}
+
+.contact-form input[type="text"] {
+    border: 2px solid blue;
+}
+
+
+

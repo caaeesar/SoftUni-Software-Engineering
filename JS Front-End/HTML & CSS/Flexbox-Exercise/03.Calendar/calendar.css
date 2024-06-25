@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EEE;
+    font-family: sans-serif;
+    padding: 4em 2em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calendar {
+    border: 1px solid #ccc;
+    outline: 2px solid #fff;
+    border-radius: 0.3em;
+    display: flex;
+}
+
+.calendar section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar span {
+    border: 1px solid #CCC;
+    background: #FFF;
+    padding: 2em;
+    text-align: center;
+    flex: 1 1 auto;
+}
+
+.calendar .week span:nth-of-type(1),
+.calendar .week span:nth-last-of-type(3) {
+    flex: 0 0 100%;
+}

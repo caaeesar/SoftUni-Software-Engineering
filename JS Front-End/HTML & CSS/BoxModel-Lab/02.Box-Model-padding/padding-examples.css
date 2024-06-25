@@ -1,0 +1,17 @@
+div {
+    border: 2px solid black;
+    margin-bottom: 2em;
+}
+
+.uniform-padding {
+    padding: 20px;
+}
+
+.non-uniform-padding {
+    /** order is – top, right, bottom, left **/
+    padding: 10px 30px 20px 40px;
+}
+
+.percentage-padding {
+    padding: 5%;
+}

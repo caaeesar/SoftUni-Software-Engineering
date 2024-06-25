@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #EEE;
+    font: 14px/1.5 sans-serif;
+    padding: 4em 2em;
+}
+
+.container {
+    background: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.container > * {
+    border: 1px solid #AAA;
+    border-radius: 0.3em;
+    padding: 2em;
+    flex: 1 1 auto;
+}
+
+.container header,
+.container footer {
+    flex: 1 1 100%;
+}
+
+.container > main {
+    flex-grow: 7;
+}
+
+.container > aside {
+    flex-grow: 3;
+}
+
+@media (max-width: 1200px){
+    .container {
+        flex-direction: column;
+    }
+} 
+
+
